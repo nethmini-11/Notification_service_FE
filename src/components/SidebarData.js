@@ -3,67 +3,89 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
+import * as SiIcons from "react-icons/si";
 
 export const SidebarData = [
   {
-    title: 'Overview',
+    title: 'Home',
     path: '/overview',
     icon: <AiIcons.AiFillHome />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'Users',
-        path: '/overview/users',
-        icon: <IoIcons.IoIosPaper />
-      },
-      {
-        title: 'Revenue',
-        path: '/overview/revenue',
-        icon: <IoIcons.IoIosPaper />
-      }
-    ]
+    
   },
   {
-    title: 'Reports',
-    path: '/reports',
-    icon: <IoIcons.IoIosPaper />,
+    title: 'Email',
+    path:'/email',
+    icon: <IoIcons.IoMdMail />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
-
+    
     subNav: [
       {
-        title: 'Reports',
-        path: '/reports/reports1',
-        icon: <IoIcons.IoIosPaper />,
+        title: 'File Mail',
+        path: '/email',
+        icon: <IoIcons.IoIosArrowForward />,
         cName: 'sub-nav'
       },
       {
-        title: 'Reports 2',
-        path: '/reports/reports2',
-        icon: <IoIcons.IoIosPaper />,
+        title: 'HTML Mail',
+        path: '/email2',
+        icon: <IoIcons.IoIosArrowForward />,
         cName: 'sub-nav'
       },
-      {
-        title: 'Reports 3',
-        path: '/reports/reports3',
-        icon: <IoIcons.IoIosPaper />
-      }
     ]
   },
   {
-    title: 'Products',
+    title: 'Schedule Mail',
     path: '/products',
-    icon: <FaIcons.FaCartPlus />
+    icon: <AiIcons.AiFillSchedule />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Single Template',
+        path: '/reports/reports1',
+        icon: <IoIcons.IoIosArrowForward />,
+        cName: 'sub-nav'
+      },
+      {
+        title: 'Multiple Template',
+        path: '/reports/reports2',
+        icon: <IoIcons.IoIosArrowForward />,
+        cName: 'sub-nav'
+      }
+    ]
   },
   {
-    title: 'Team',
+    title: 'Firebase',
     path: '/team',
-    icon: <IoIcons.IoMdPeople />
+    icon: <SiIcons.SiFirebase />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Update Notification',
+        path: '/reports/reports1',
+        icon: <IoIcons.IoIosArrowForward />,
+        cName: 'sub-nav'
+      },
+      {
+        title: 'Update FCM',
+        path: '/reports/reports2',
+        icon: <IoIcons.IoIosArrowForward />,
+        cName: 'sub-nav'
+      },
+      {
+        title: 'Verify Token',
+        path: '/reports/reports2',
+        icon: <IoIcons.IoIosArrowForward />,
+        cName: 'sub-nav'
+      }
+    ]
   },
   {
-    title: 'Messages',
+    title: 'Manage Mails',
     path: '/messages',
     icon: <FaIcons.FaEnvelopeOpenText />,
 
@@ -72,20 +94,35 @@ export const SidebarData = [
 
     subNav: [
       {
-        title: 'Message 1',
+        title: 'Update Email Content',
         path: '/messages/message1',
-        icon: <IoIcons.IoIosPaper />
+        icon: <IoIcons.IoIosArrowForward />
       },
       {
-        title: 'Message 2',
+        title: 'All Mails',
         path: '/messages/message2',
-        icon: <IoIcons.IoIosPaper />
+        icon: <IoIcons.IoIosArrowForward />
       }
     ]
   },
   {
-    title: 'Support',
+    title: 'Manage Messages',
     path: '/support',
-    icon: <IoIcons.IoMdHelpCircle />
+    icon: <AiIcons.AiFillMessage />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Update Message Content',
+        path: '/messages/message1',
+        icon: <IoIcons.IoIosArrowForward />
+      },
+      {
+        title: 'All Messages',
+        path: '/messages/message2',
+        icon: <IoIcons.IoIosArrowForward />
+      }
+    ]
   }
 ];

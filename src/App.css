@@ -14,15 +14,19 @@
 .reports {
   display: flex;
   height: 90vh;
- 
-  
   font-size: 3rem;
 }
-
+.report {
+  display: flex;
+  height: 90vh;
+  font-size: 3rem;
+  align-items: center;
+  justify-content: center;
+}
 .div2 {
-  width: 40%;
-  height: 30%;  
-  margin-left: 25%;
+  width: 46%;
+  height: 50%;  
+  margin-left: 35%;
   margin-top: 5%;
   border-radius: 20px;
   background-image: url("../src/images/email.png");
@@ -30,4 +34,49 @@
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+
+/*File mail styles*/
+
+
+h1 {
+  margin-bottom: 40px;
+}
+
+label {
+  color: #333;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.btn-send {
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  width: 50%;
+  border: none;
+  background-color: #0ac74a !important;
+  margin-left: 22%;
+  margin-top: 10%;
+  font-weight: bold !important;
+  color: aliceblue !important;
+  }
+.help-block.with-errors {
+  color: #ff5050;
+  margin-top: 5px;
+
+}
+
+.card{
+margin-left: 10px;
+margin-right: 10px;
+}
+
+
+/*form-box customization*/
+
+.form-control:focus {
+  border-color: transparent !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(111, 238, 153) !important;
 }

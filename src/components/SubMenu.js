@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const SidebarLink = styled(Link)`
-  display: flex;
+display: flex;
   color: #1a1717;
   justify-content: space-between;
   align-items: center;
@@ -13,9 +13,15 @@ const SidebarLink = styled(Link)`
   text-decoration: none;
   font-size: 18px;
 
-  &:hover {
+  &.active {
     background: #eafcdc;
-    border-left: 6px solid #5CA025;
+    border-left: 6px solid #0ac74a;
+    cursor: pointer;
+  }
+
+  &:hover {
+    background: #e3fcec;
+    border-left: 6px solid #0ac74a;
     cursor: pointer;
   }
 `;
@@ -25,7 +31,7 @@ const SidebarLabel = styled.span`
 `;
 
 const DropdownLink = styled(Link)`
-  background: #e2ffcc;
+  background: #ffffff;
   height: 60px;
   padding-left: 3rem;
   display: flex;
@@ -35,7 +41,7 @@ const DropdownLink = styled(Link)`
   font-size: 18px;
 
   &:hover {
-    background: #e2ffcc;
+    background: #edfff3;
     cursor: pointer;
   }
 `;

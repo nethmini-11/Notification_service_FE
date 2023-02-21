@@ -6,7 +6,8 @@ import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
 import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
-import logo from '../images/cover.png';
+import user from '../images/user.jpg';
+import logo from '../images/cover.png'
 
 const Nav = styled.div`
   background: #fafafa;
@@ -28,20 +29,20 @@ const NavIcon = styled(Link)`
 
 const SidebarNav = styled.nav`
   background: #FFFFFF;
-  width: 250px;
-  height: 100vh;
+  width: 300px;
+  height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   box-shadow: rgba(235, 255, 232) 0px 8px 24px;
   position: fixed;
   top: 0;
-  
-
+  overflow: hidden;
 `;
 
 const SidebarWrap = styled.div`
-  width: 100%;
-  
+  height: 100%;
+  overflow: auto;
 `;
 
 const Sidebar = () => {
@@ -49,19 +50,19 @@ const Sidebar = () => {
 
   const showSidebar = () => setSidebar(!sidebar);
 
+  // Set "isActive" to true for the first item in SidebarData
+  SidebarData[0].isActive = true;
+
   return (
     <>
-      <IconContext.Provider value={{ color: '#9C9C9C' }}>
+      <IconContext.Provider value={{ color: '#0ac74a' }}>
         <Nav>
-          <NavIcon to='#'>
-            <FaIcons.FaBars onClick={showSidebar} />
-          </NavIcon>
+        <img src={user} style={{ width: '3%', height: '60%', marginLeft:"90%"}}/> <a style={{marginLeft:"2%" , fontWeight:"600"}}>John</a> 
+         
         </Nav>
-        <SidebarNav sidebar={sidebar} >
+        <SidebarNav sidebar={sidebar}>
+          <img src={logo} style={{ width: '50%', height: 'auto', marginLeft:'15%' , marginTop:'10%' ,marginBottom:'10%'}} alt="logo" />
           <SidebarWrap>
-            
-              <img src={logo} style={{width:'80%',height:'10%' , padding:"10px"}}></img>
-           
             {SidebarData.map((item, index) => {
               return <SubMenu item={item} key={index} />;
             })}
