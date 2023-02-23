@@ -4,13 +4,13 @@ const FileMail = () => {
   return (
     <div>
       <div className="report">
-        <div class="container" style={{ marginLeft: "18%" }}>
-          <div class="row " style={{ marginTop: "30%", marginBottom: "5%" }}>
+        <div class="container" style={{ marginLeft: "22%" }}>
+          <div class="row " style={{ marginTop: "16%", marginBottom: "5%" }}>
             <div class="col-lg-7 mx-auto">
               <div
                 class="card mt-2  mx-auto p-4 bg-light"
                 style={{
-                  boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                  boxShadow:" rgba(0, 0, 0, 0.15) 0px 5px 15px 0px",
                   border: "none",
                 }}
               >
