@@ -48,7 +48,7 @@ const Title = () => {
 
 const Home = () => {
   return (
-    <div >
+    <div  >
       <h4 style={{ marginLeft: "22%", marginTop: "2%", fontWeight: "bold" }}>
         <Title className="title" />
       </h4>
@@ -56,7 +56,12 @@ const Home = () => {
         <ExampleComponent />
       </div>
       <div className="home" >
-        <div className="div2"></div>
+        <div className="div2"><div className="animateContainer">
+        <div className="circleCell" />
+        <div className="circleCell" />
+        <div className="circleCell" />
+      </div></div>
+       
       </div>
       
     </div>
