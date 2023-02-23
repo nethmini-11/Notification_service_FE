@@ -2,20 +2,29 @@ import React from "react";
 
 const htmlMail = () => {
   return (
-    <div>
+    <div  >
       <div className="report">
-        <div class="container" style={{ marginLeft: "18%" }}>
-          <div class="row " style={{ marginTop: "20%", marginBottom: "5%" }}>
+        <div class="container" style={{ marginLeft: "24%" }}>
+          <div class="row">
             <div class="col-lg-7 mx-auto">
               <div
                 class="card mt-2  mx-auto p-4 bg-light"
                 style={{
-                  boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                  boxShadow: " rgba(0, 0, 0, 0.15) 0px 5px 15px 0px",
                   border: "none",
                 }}
               >
                 <div class="card-body bg-light">
-                  <h4 style={{borderLeft:"6px solid #000000" , fontWeight:"bold" , color:"#0ac74a"}}> <div style={{marginLeft:"2%"}}>Send HTML Mails ✉️</div></h4>
+                  <h4
+                    style={{
+                      borderLeft: "6px solid #000000",
+                      fontWeight: "bold",
+                      color: "#0ac74a",
+                    }}
+                  >
+                    {" "}
+                    <div style={{ marginLeft: "2%" }}>Send HTML Mails ✉️</div>
+                  </h4>
                   <div class="container">
                     <form id="contact-form" role="form">
                       <div class="controls">
@@ -84,7 +93,6 @@ const htmlMail = () => {
                               />
                             </div>
                           </div>
-
                         </div>
                         <div class="row">
                           <div class="col-md-6">
@@ -115,10 +123,9 @@ const htmlMail = () => {
                               />
                             </div>
                           </div>
-
                         </div>
                         <div class="row">
-                        <div class="col-md-6">
+                          <div class="col-md-6">
                             <div class="form-group">
                               <label for="form_email">
                                 Product image url *
@@ -150,10 +157,8 @@ const htmlMail = () => {
                               />
                             </div>
                           </div>
-
                         </div>
                         <div class="row">
-          
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="form_need">
@@ -169,13 +174,15 @@ const htmlMail = () => {
                                 <option value="" selected disabled>
                                   --Select--
                                 </option>
-                                <option>order_confirmation_email_to_customer</option>
+                                <option>
+                                  order_confirmation_email_to_customer
+                                </option>
                               </select>
                             </div>
                           </div>
                         </div>
                         <div class="row">
-              <div class="col-md-12">
+                          <div class="col-md-12">
                             <input
                               type="submit"
                               class="btn btn-send  pt-2 btn-block"
