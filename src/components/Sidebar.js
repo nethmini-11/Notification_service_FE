@@ -55,7 +55,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <IconContext.Provider value={{ color: '#0ac74a' }}>
+      <IconContext.Provider value={{ color: '#000000' }}>
         <Nav>
         <img src={user} style={{ width: '3%', height: '60%', marginLeft:"90%"}}/> <a style={{marginLeft:"2%" , fontWeight:"600"}}>John</a> 
          
