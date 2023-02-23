@@ -44,7 +44,7 @@ export const SidebarData = [
     subNav: [
       {
         title: 'Single Template',
-        path: '/reports/reports1',
+        path: '/schedule/singlemail',
         icon: <IoIcons.IoIosArrowForward />,
         cName: 'sub-nav'
       },
