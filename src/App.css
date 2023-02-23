@@ -24,16 +24,15 @@
   justify-content: center;
 }
 .div2 {
-  width: 46%;
-  height: 50%;  
-  margin-left: 35%;
-  margin-top: 5%;
+  width: 86%;
+  height: 60%;  
+  margin-left: 18%;
+  margin-top: 2%;
   border-radius: 20px;
-  background-image: url("../src/images/email.png");
-  background-size: contain;
+  background-image: url("../src/images/cv1.png");
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  
 }
 
 
@@ -62,10 +61,10 @@ label {
   font-weight: bold !important;
   color: aliceblue !important;
   }
+  
 .help-block.with-errors {
   color: #ff5050;
   margin-top: 5px;
-
 }
 
 .card{
@@ -73,10 +72,20 @@ margin-left: 10px;
 margin-right: 10px;
 }
 
-
 /*form-box customization*/
-
 .form-control:focus {
   border-color: transparent !important;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(111, 238, 153) !important;
 }
+
+.bg {
+  background-image: url("./images/bg.png") !important;
+  background-repeat: no-repeat;
+ 
+
+}
+
+.title{
+  color: linear-gradient(to bottom, #0ac74a, #000000);
+}
+
