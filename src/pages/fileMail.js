@@ -6,6 +6,7 @@ const FileMail = () => {
       <div className="report">
         <div class="container" style={{ marginLeft: "22%" }}>
           <div class="row " style={{ marginTop: "16%", marginBottom: "5%" }}>
+            
             <div class="col-lg-7 mx-auto">
               <div
                 class="card mt-2  mx-auto p-4 bg-light"
@@ -50,6 +51,7 @@ const FileMail = () => {
                               />
                             </div>
                           </div>
+                          
                         </div>
                         <div class="row">
                           <div class="col-md-6">
