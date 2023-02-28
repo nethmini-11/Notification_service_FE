@@ -26,7 +26,7 @@
 .div2 {
   width: 86%;
   height: 60%;  
-  margin-left: 18%;
+  margin-left: 16%;
   border-radius: 20px;
   background-image: url("../src/images/cv1.png");
   background-repeat: no-repeat;
@@ -182,24 +182,11 @@ margin-top: 10%;
 }
 
 
-.card::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  animation: ripples 800ms ease-in infinite;
+.react-datepicker__input-container {
+  border: none;
+  outline: none;
+  
 }
 
-@keyframes ripples {
-  from {
-    border: 1px solid transparent;
-  }
 
-  to {
-    border: 20px solid #e7f1fe;
-    opacity: 0;
-  }
-}
+
