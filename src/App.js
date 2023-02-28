@@ -7,6 +7,7 @@ import FileMail from './pages/fileMail'
 import Team from "./pages/Team";
 import htmlMail from "./pages/htmlMail";
 import ScheduleSingleMail from "./pages/scheduleSingleMail";
+import CreateTemplate from "./pages/createTemplate";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/email2" exact component={htmlMail} />
         <Route path="/team" exact component={Team} />
         <Route path="/schedule/singlemail" exact component={ScheduleSingleMail}/>
+        <Route path ="/create/template"  exact component={CreateTemplate}/>
       </Switch>
     </Router>
   );
