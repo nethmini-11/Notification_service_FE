@@ -94,6 +94,11 @@ export const SidebarData = [
 
     subNav: [
       {
+        title: 'Create New Template',
+        path: '/create/template',
+        icon: <IoIcons.IoIosArrowForward />
+      },
+      {
         title: 'Update Email Content',
         path: '/messages/message1',
         icon: <IoIcons.IoIosArrowForward />
