@@ -1,22 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 
 const FileMail = () => {
+  const [receiverEmail, setReceiverEmail] = useState("");
+  const [receiverMobile, setReceiverMobile] = useState("");
+  const [userId, setUserId] = useState("");
+  const [title, setTitle] = useState("");
+  const [productName, setProductName] = useState("");
+  const [productQuantity, setProductQuantity] = useState("");
+  const [productUrl, setProductUrl] = useState("");
+  const [bannerUrl, setBannerUrl] = useState("");
+  const [fileName, setFileName] = useState("");
+  const [templateName, setTemplateName] = useState("");
+  const [base64, setBase64] = useState("");
+
   return (
     <div>
       <div className="report">
         <div class="container" style={{ marginLeft: "22%" }}>
           <div class="row " style={{ marginTop: "16%", marginBottom: "5%" }}>
-            
             <div class="col-lg-7 mx-auto">
               <div
                 class="card mt-2  mx-auto p-4 bg-light"
                 style={{
-                  boxShadow:" rgba(0, 0, 0, 0.15) 0px 5px 15px 0px",
+                  boxShadow: " rgba(0, 0, 0, 0.15) 0px 5px 15px 0px",
                   border: "none",
                 }}
               >
                 <div class="card-body bg-light">
-                  <h4 style={{borderLeft:"6px solid #000000" , fontWeight:"bold" , color:"#0ac74a"}}> <div style={{marginLeft:"2%"}}>Send File Mails ✉️</div></h4>
+                  <h4
+                    style={{
+                      borderLeft: "6px solid #000000",
+                      fontWeight: "bold",
+                      color: "#0ac74a",
+                    }}
+                  >
+                    {" "}
+                    <div style={{ marginLeft: "2%" }}>Send File Mails ✉️</div>
+                  </h4>
                   <div class="container">
                     <form id="contact-form" role="form">
                       <div class="controls">
@@ -51,7 +71,6 @@ const FileMail = () => {
                               />
                             </div>
                           </div>
-                          
                         </div>
                         <div class="row">
                           <div class="col-md-6">
@@ -86,7 +105,6 @@ const FileMail = () => {
                               />
                             </div>
                           </div>
-
                         </div>
                         <div class="row">
                           <div class="col-md-6">
@@ -117,10 +135,9 @@ const FileMail = () => {
                               />
                             </div>
                           </div>
-
                         </div>
                         <div class="row">
-                        <div class="col-md-6">
+                          <div class="col-md-6">
                             <div class="form-group">
                               <label for="form_email">
                                 Product image url *
@@ -152,7 +169,6 @@ const FileMail = () => {
                               />
                             </div>
                           </div>
-
                         </div>
                         <div class="row">
                           <div class="col-md-6">
@@ -184,7 +200,9 @@ const FileMail = () => {
                                 <option value="" selected disabled>
                                   --Select--
                                 </option>
-                                <option>order_confirmation_email_to_customer</option>
+                                <option>
+                                  order_confirmation_email_to_customer
+                                </option>
                               </select>
                             </div>
                           </div>
@@ -192,7 +210,9 @@ const FileMail = () => {
                         <div class="row">
                           <div class="col-md-12">
                             <div class="form-group">
-                              <label for="form_message">Base64 encoded file *</label>
+                              <label for="form_message">
+                                Base64 encoded file *
+                              </label>
                               <textarea
                                 id="form_message"
                                 name="message"
