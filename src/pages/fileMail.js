@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const FileMail = () => {
   const [receiverEmail, setReceiverEmail] = useState("");
@@ -12,6 +13,33 @@ const FileMail = () => {
   const [fileName, setFileName] = useState("");
   const [templateName, setTemplateName] = useState("");
   const [base64, setBase64] = useState("");
+
+  function postFileMail() {
+    axios.post(postFileMail,{
+      base64file: base64,
+      filename: fileName,
+      mail: {
+        content: {},
+        ordersList: [
+          {
+            productName:productName ,
+            productQuantity: productQuantity,
+            productUrl: productUrl
+          }
+        ],
+        receiverEmail: receiverEmail,
+        topBannerAdUrl:bannerUrl
+      },
+      mobileNo: receiverMobile,
+      notification: {
+        content: {
+            title:title
+        }
+      },
+      templateName: templateName,
+      userId: userId
+    });
+  }
 
   return (
     <div>
