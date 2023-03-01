@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const Team = () => {
   return (
-    <div className='home'>
+    <div className="home">
       <h1>Team</h1>
     </div>
   );
