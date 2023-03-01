@@ -2,7 +2,7 @@ import React from "react";
 
 const htmlMail = () => {
   return (
-    <div  >
+    <div>
       <div className="report">
         <div class="container" style={{ marginLeft: "24%" }}>
           <div class="row">
