@@ -16,6 +16,20 @@
   height: 90vh;
   font-size: 3rem;
 }
+.message{
+  display: flex;
+  height: 50vh;
+  font-size: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+.template{
+  display: flex;
+  height: 80vh;
+  font-size: 3rem;
+  align-items: center;
+  justify-content: center;
+}
 .report {
   display: flex;
   height: 90vh;
@@ -187,6 +201,9 @@ margin-top: 10%;
   outline: none;
   
 }
-
-
-
+.ck.ck-editor__editable {
+  max-height: 300px;
+  font-size: x-small;
+  outline: none;
+  border: 1px solid rgb(111, 238, 153) !important;
+}
