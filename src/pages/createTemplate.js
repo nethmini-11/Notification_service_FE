@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const CreateTemplate = () => {
+  const [data, setData] = useState(
+    "<html> <top-banner-advertisement> <h4>Hey <non-editable><receiver-name></non-editable>,</h4> <p>Thank you for placing a rental request on Cloud of Goods. We're waiting for one of our partners to accept your order. You will hear back from us as soon as the order is accepted. In the meantime, please review the details below and let us know of any changes. Please note that your credit card will not be charged until the order is accepted.</p> <h2>Order Summary Order #<non-editable><order-no></non-editable></h2> <non-editable><item-details-section></non-editable> <h3>Delivery Date: <non-editable><delivery-date></non-editable></h3> <h3>Delivery Time: <non-editable><delivery-time></non-editable></h3> <h3>Delivery Location: <non-editable><delivery-location-address></non-editable></h3> <h3>Pickup Date: <non-editable><pick-up-date></non-editable></h3> <h3>Pickup Time: <non-editable><pick-up-time></non-editable></h3> <h3>Pickup Location: <non-editable><pickup-location-address></non-editable></h3> <h2>Price Summary</h2> <h5>Total rental amount <non-editable><total-rental-amount></non-editable></h5> <h5>Damage Waiver <non-editable><damage-waiver-amount></non-editable></h5> <h4>Total paid <non-editable><total-paid-amount></non-editable></h4> <p>Please thoroughly review the above reservation details. If you have any questions or would like to modify the order, please reply directly to this email.</p> <p>* This does not happen often, but if the requested delivery times are already taken, <non-editable><vendor-name></non-editable> will give you a call to make adjustments.</p> <h2>Rules & Responsibilities</h2> <h4>● All items are carefully inspected before and after rentals. Any damage upon return is subject to additional fees. </h4> <h4>● You may reschedule delivery or change the order details only if <non-editable><vendor-name></non-editable> allows such options.</h4> <h4>● You may cancel or modify this order by logging into your Cloud of Goods account or sending an email to info@cloudofgoods.com with the subject: [CANCEL] <order-no> or [Modify] <order-no>. All cancellations are subject to our cancellation policy.</h4> <h4>We’ll see you then, cheers!</h4></br> - <non-editable><mail-send-by></non-editable> </html>"
+  );
   return (
-    <div  >
-      <div className="report">
+    <div>
+      <div className="template">
         <div class="container" style={{ marginLeft: "24%" }}>
           <div class="row">
             <div class="col-lg-7 mx-auto">
@@ -23,7 +28,7 @@ const CreateTemplate = () => {
                     }}
                   >
                     {" "}
-                    <div style={{ marginLeft: "2%" }}>Send HTML Mails ✉️</div>
+                    <div style={{ marginLeft: "2%" }}>Create Template 📝</div>
                   </h4>
                   <div class="container">
                     <form id="contact-form" role="form">
@@ -31,162 +36,59 @@ const CreateTemplate = () => {
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="form_name">Receiver's Email *</label>
+                              <label for="form_name">Template Name *</label>
                               <input
                                 id="form_name"
                                 type="text"
                                 name="name"
                                 class="form-control"
-                                placeholder="example@gmail.com *"
+                                placeholder="order_delivered_email_to_customer *"
                                 required="required"
-                                data-error="Email is required."
+                                data-error="Template name is required."
                               />
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="form_lastname">
-                                Receiver's Mobile Number *
-                              </label>
+                              <label for="form_lastname">Email Subject *</label>
                               <input
                                 id="form_lastname"
                                 type="text"
                                 name="surname"
                                 class="form-control"
-                                placeholder="+941111111 *"
+                                placeholder="We received your rental request. Here’s what happens next*"
                                 required="required"
-                                data-error="Mobile number is required."
+                                data-error="Email subject is required."
                               />
                             </div>
                           </div>
                         </div>
+
                         <div class="row">
-                          <div class="col-md-6">
+                          <div class="col-md-12">
                             <div class="form-group">
-                              <label for="form_email">User Id *</label>
-                              <select
-                                id="form_need"
-                                name="need"
-                                class="form-control"
-                                required="required"
-                                data-error="Please specify your need."
-                              >
-                                <option value="" selected disabled>
-                                  --Select--
-                                </option>
-                                <option>100</option>
-                                <option>200</option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="form_email">Title *</label>
-                              <input
-                                id="form_email"
-                                type="email"
-                                name="email"
-                                class="form-control"
-                                placeholder="example *"
-                                required="required"
-                                data-error="Title is required."
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="form_email">Product name *</label>
-                              <input
-                                id="form_email"
-                                type="email"
-                                name="email"
-                                class="form-control"
-                                placeholder="Lightweight Mobility  *"
-                                required="required"
-                                data-error="Product name is required."
-                              />
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="form_email">Product quantity *</label>
-                              <input
-                                id="form_email"
-                                type="email"
-                                name="email"
-                                class="form-control"
-                                placeholder="5 *"
-                                required="required"
-                                data-error="Product quantity is required."
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="form_email">
-                                Product image url *
+                              <label for="form_message">
+                                Create Your Template *
                               </label>
-                              <input
-                                id="form_email"
-                                type="email"
-                                name="email"
-                                class="form-control"
-                                placeholder=" http://www.example.com/index.html *"
-                                required="required"
-                                data-error="Product image  is required."
-                              />
+                              {/* <textarea id="form_message" name="message" class="form-control" rows="10" required="required" value="<html> <top-banner-advertisement> <h4>Hey <non-editable><receiver-name></non-editable>,</h4> <p>Thank you for placing a rental request on Cloud of Goods. We're waiting for one of our partners to accept your order. You will hear back from us as soon as the order is accepted. In the meantime, please review the details below and let us know of any changes. Please note that your credit card will not be charged until the order is accepted.</p> <h2>Order Summary Order #<non-editable><order-no></non-editable></h2> <non-editable><item-details-section></non-editable> <h3>Delivery Date: <non-editable><delivery-date></non-editable></h3> <h3>Delivery Time: <non-editable><delivery-time></non-editable></h3> <h3>Delivery Location: <non-editable><delivery-location-address></non-editable></h3> <h3>Pickup Date: <non-editable><pick-up-date></non-editable></h3> <h3>Pickup Time: <non-editable><pick-up-time></non-editable></h3> <h3>Pickup Location: <non-editable><pickup-location-address></non-editable></h3> <h2>Price Summary</h2> <h5>Total rental amount <non-editable><total-rental-amount></non-editable></h5> <h5>Damage Waiver <non-editable><damage-waiver-amount></non-editable></h5> <h4>Total paid <non-editable><total-paid-amount></non-editable></h4> <p>Please thoroughly review the above reservation details. If you have any questions or would like to modify the order, please reply directly to this email.</p> <p>* This does not happen often, but if the requested delivery times are already taken, <non-editable><vendor-name></non-editable> will give you a call to make adjustments.</p> <h2>Rules & Responsibilities</h2> <h4>● All items are carefully inspected before and after rentals. Any damage upon return is subject to additional fees. </h4> <h4>● You may reschedule delivery or change the order details only if <non-editable><vendor-name></non-editable> allows such options.</h4> <h4>● You may cancel or modify this order by logging into your Cloud of Goods account or sending an email to info@cloudofgoods.com with the subject: [CANCEL] <order-no> or [Modify] <order-no>. All cancellations are subject to our cancellation policy.</h4> <h4>We’ll see you then, cheers!</h4></br> - <non-editable><mail-send-by></non-editable> </html>" data-error="base64 encoded file is required." >
+                      
+</textarea> */}
+                              <div className="editor-container">
+                                <CKEditor
+                                  editor={ClassicEditor}
+                                  data={data}
+                                  onChange={(event, editor) => {
+                                    setData(editor.getData());
+                                  }}
+                                />
+                              </div>
                             </div>
                           </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="form_email">
-                                Top banner image url *
-                              </label>
-                              <input
-                                id="form_email"
-                                type="email"
-                                name="email"
-                                class="form-control"
-                                placeholder=" http://www.example.com/index.html *"
-                                required="required"
-                                data-error="Top banner image is required."
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="form_need">
-                                Select template name *
-                              </label>
-                              <select
-                                id="form_need"
-                                name="need"
-                                class="form-control"
-                                required="required"
-                                data-error="Template name is required."
-                              >
-                                <option value="" selected disabled>
-                                  --Select--
-                                </option>
-                                <option>
-                                  order_confirmation_email_to_customer
-                                </option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
                           <div class="col-md-12">
                             <input
                               type="submit"
                               class="btn btn-send  pt-2 btn-block"
-                              value="Send Notification ✅"
+                              value="Create Template✅"
                             />
                           </div>
                         </div>
