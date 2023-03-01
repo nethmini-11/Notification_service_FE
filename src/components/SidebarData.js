@@ -100,7 +100,7 @@ export const SidebarData = [
       },
       {
         title: 'Update Email Content',
-        path: '/messages/message1',
+        path: '/update/template',
         icon: <IoIcons.IoIosArrowForward />
       },
       {
@@ -120,7 +120,7 @@ export const SidebarData = [
     subNav: [
       {
         title: 'Update Message Content',
-        path: '/messages/message1',
+        path: '/update/message',
         icon: <IoIcons.IoIosArrowForward />
       },
       {
