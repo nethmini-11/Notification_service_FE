@@ -187,15 +187,9 @@ const ScheduleSingleMail = () => {
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="form_need">
-                                Select Time *
-                              </label>
+                              <label for="form_need">Select Time *</label>
                               <div class="form-control">
-                                <TimePicker
-                                
-                                  onChange={onChange}
-                                  value={value}
-                                />
+                                <TimePicker onChange={onChange} value={value} />
                               </div>
                             </div>
                           </div>
