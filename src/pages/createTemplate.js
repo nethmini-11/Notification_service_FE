@@ -13,9 +13,13 @@ const CreateTemplate = () => {
   );
   const postMailTemplateUrl = PostMailTemplate();
 
+  // Function that handles button click event
   const handleButton = async (e) => {
     e.preventDefault();
+
+    // Check if all necessary fields are filled out
     if (!templateName || !subjectName || !data) {
+      // If not, display error message using SweetAlert2 library
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -25,11 +29,14 @@ const CreateTemplate = () => {
         timer: 4000,
       });
     } else {
+      // If all fields are filled out, call postMailTemplate function
       await postMailTemplate();
     }
   };
 
+  // Function that makes a POST request to server to create a new email template
   function postMailTemplate() {
+    // Use axios library to make POST request to server
     axios
       .post(postMailTemplateUrl, {
         editedEmailContent: data,
@@ -40,6 +47,7 @@ const CreateTemplate = () => {
         console.log(res);
         const { data, status } = res;
         if (status === 200) {
+          // If request is successful, display success message using SweetAlert2 library
           Swal.fire({
             icon: "success",
             title: data,
