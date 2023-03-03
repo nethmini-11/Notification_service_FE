@@ -49,7 +49,7 @@ const FileMail = () => {
     }
   };
 
-  // Function that makes a POST request to server to send a new email
+  // Function that makes a POST request to server to send a new file email
   function postFileMail() {
     // Use axios library to make POST request to server
     axios
