@@ -17,15 +17,19 @@ const FileMail = () => {
   const [base64, setBase64] = useState("");
   const postFileMailUrl = PostFileMail();
 
-  const handleButton = () => {
+  const handleButton = async (e) => {
+    e.preventDefault();
     if (!base64 || !fileName || !productName || !productQuantity || !productUrl || !receiverEmail || !bannerUrl || !receiverMobile || !title || !templateName || !userId) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Please fill out all fields!",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        timer: 4000,
       });
     } else {
-      Swal.fire("Good job!", "You clicked the button!", "success");
+     await postFileMail();
     }
   };
   
@@ -53,6 +57,20 @@ const FileMail = () => {
       },
       templateName: templateName,
       userId: userId,
+    })
+    .then((res) => {
+      console.log(res);
+      const { data, status } = res;
+      if (status === 200) {
+        Swal.fire({
+          icon: "success",
+          title: data,
+          text: "🙂",
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          timer: 4000,
+        });
+      }
     });
   }
 
@@ -307,8 +325,8 @@ const FileMail = () => {
                               class="btn btn-send  pt-2 btn-block"
                               value="Send Notification ✅"
                               onClick={(e) => {
-                                postFileMail();
-                                handleButton();
+                        
+                                handleButton(e);
                               }}
                             />
                           </div>
