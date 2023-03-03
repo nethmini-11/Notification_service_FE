@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import { PostFileMail } from "../request/PostRequests";
 
 const FileMail = () => {
@@ -16,6 +17,18 @@ const FileMail = () => {
   const [base64, setBase64] = useState("");
   const postFileMailUrl = PostFileMail();
 
+  const handleButton = () => {
+    if (!base64 || !fileName || !productName || !productQuantity || !productUrl || !receiverEmail || !bannerUrl || !receiverMobile || !title || !templateName || !userId) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill out all fields!",
+      });
+    } else {
+      Swal.fire("Good job!", "You clicked the button!", "success");
+    }
+  };
+  
   function postFileMail() {
     axios.post(postFileMailUrl, {
       base64file: base64,
@@ -295,6 +308,7 @@ const FileMail = () => {
                               value="Send Notification ✅"
                               onClick={(e) => {
                                 postFileMail();
+                                handleButton();
                               }}
                             />
                           </div>
