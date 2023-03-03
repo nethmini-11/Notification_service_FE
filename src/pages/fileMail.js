@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { PostFileMail } from "../request/PostRequests";
 
 const FileMail = () => {
   const [receiverEmail, setReceiverEmail] = useState("");
@@ -13,31 +14,32 @@ const FileMail = () => {
   const [fileName, setFileName] = useState("");
   const [templateName, setTemplateName] = useState("");
   const [base64, setBase64] = useState("");
+  const postFileMailUrl = PostFileMail();
 
   function postFileMail() {
-    axios.post(postFileMail,{
+    axios.post(postFileMailUrl, {
       base64file: base64,
       filename: fileName,
       mail: {
         content: {},
         ordersList: [
           {
-            productName:productName ,
+            productName: productName,
             productQuantity: productQuantity,
-            productUrl: productUrl
-          }
+            productUrl: productUrl,
+          },
         ],
         receiverEmail: receiverEmail,
-        topBannerAdUrl:bannerUrl
+        topBannerAdUrl: bannerUrl,
       },
       mobileNo: receiverMobile,
       notification: {
         content: {
-            title:title
-        }
+          title: title,
+        },
       },
       templateName: templateName,
-      userId: userId
+      userId: userId,
     });
   }
 
@@ -80,6 +82,9 @@ const FileMail = () => {
                                 placeholder="example@gmail.com *"
                                 required="required"
                                 data-error="Email is required."
+                                onChange={(e) => {
+                                  setReceiverEmail(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -96,6 +101,9 @@ const FileMail = () => {
                                 placeholder="+941111111 *"
                                 required="required"
                                 data-error="Mobile number is required."
+                                onChange={(e) => {
+                                  setReceiverMobile(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -110,6 +118,9 @@ const FileMail = () => {
                                 class="form-control"
                                 required="required"
                                 data-error="Please specify your need."
+                                onChange={(e) => {
+                                  setUserId(e.target.value);
+                                }}
                               >
                                 <option value="" selected disabled>
                                   --Select--
@@ -124,12 +135,15 @@ const FileMail = () => {
                               <label for="form_email">Title *</label>
                               <input
                                 id="form_email"
-                                type="email"
+                                type="text"
                                 name="email"
                                 class="form-control"
                                 placeholder="example *"
                                 required="required"
                                 data-error="Title is required."
+                                onChange={(e) => {
+                                  setTitle(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -140,12 +154,15 @@ const FileMail = () => {
                               <label for="form_email">Product name *</label>
                               <input
                                 id="form_email"
-                                type="email"
+                                type="text"
                                 name="email"
                                 class="form-control"
                                 placeholder="Lightweight Mobility  *"
                                 required="required"
                                 data-error="Product name is required."
+                                onChange={(e) => {
+                                  setProductName(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -154,12 +171,15 @@ const FileMail = () => {
                               <label for="form_email">Product quantity *</label>
                               <input
                                 id="form_email"
-                                type="email"
+                                type="text"
                                 name="email"
                                 class="form-control"
                                 placeholder="5 *"
                                 required="required"
                                 data-error="Product quantity is required."
+                                onChange={(e) => {
+                                  setProductQuantity(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -172,12 +192,15 @@ const FileMail = () => {
                               </label>
                               <input
                                 id="form_email"
-                                type="email"
+                                type="text"
                                 name="email"
                                 class="form-control"
                                 placeholder=" http://www.example.com/index.html *"
                                 required="required"
                                 data-error="Product image  is required."
+                                onChange={(e) => {
+                                  setProductUrl(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -188,12 +211,15 @@ const FileMail = () => {
                               </label>
                               <input
                                 id="form_email"
-                                type="email"
+                                type="text"
                                 name="email"
                                 class="form-control"
                                 placeholder=" http://www.example.com/index.html *"
                                 required="required"
                                 data-error="Top banner image is required."
+                                onChange={(e) => {
+                                  setBannerUrl(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -204,12 +230,15 @@ const FileMail = () => {
                               <label for="form_email">File name *</label>
                               <input
                                 id="form_email"
-                                type="email"
+                                type="text"
                                 name="email"
                                 class="form-control"
                                 placeholder="example.pdf *"
                                 required="required"
                                 data-error="File name is required."
+                                onChange={(e) => {
+                                  setFileName(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -224,6 +253,9 @@ const FileMail = () => {
                                 class="form-control"
                                 required="required"
                                 data-error="Template name is required."
+                                onChange={(e) => {
+                                  setTemplateName(e.target.value);
+                                }}
                               >
                                 <option value="" selected disabled>
                                   --Select--
@@ -249,6 +281,9 @@ const FileMail = () => {
                                 rows="4"
                                 required="required"
                                 data-error="base64 encoded file is required."
+                                onChange={(e) => {
+                                  setBase64(e.target.value);
+                                }}
                               ></textarea>
                             </div>
                           </div>
@@ -258,6 +293,9 @@ const FileMail = () => {
                               type="submit"
                               class="btn btn-send  pt-2 btn-block"
                               value="Send Notification ✅"
+                              onClick={(e) => {
+                                postFileMail();
+                              }}
                             />
                           </div>
                         </div>
