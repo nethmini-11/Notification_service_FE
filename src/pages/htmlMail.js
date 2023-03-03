@@ -1,6 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { PostHtmlMail } from "../request/PostRequests";
 
-const htmlMail = () => {
+const HtmlMail = () => {
+  const [receiverEmail, setReceiverEmail] = useState("");
+  const [receiverMobile, setReceiverMobile] = useState("");
+  const [userId, setUserId] = useState("");
+  const [title, setTitle] = useState("");
+  const [productName, setProductName] = useState("");
+  const [productQuantity, setProductQuantity] = useState("");
+  const [productUrl, setProductUrl] = useState("");
+  const [bannerUrl, setBannerUrl] = useState("");
+  const [templateName, setTemplateName] = useState("");
+  const postHtmlMailUrl = PostHtmlMail();
+
+  function postHtmlMail() {
+    axios.post(postHtmlMailUrl, {
+      mail: {
+        content: {},
+        ordersList: [
+          {
+            productName: productName,
+            productQuantity: productQuantity,
+            productUrl: productUrl,
+          },
+        ],
+        receiverEmail: receiverEmail,
+        topBannerAdUrl: bannerUrl,
+      },
+      mobileNo: receiverMobile,
+      notification: {
+        content: {
+          title: title,
+        },
+      },
+      templateName: templateName,
+      userId: userId,
+    });
+  }
+
   return (
     <div>
       <div className="report">
@@ -40,6 +78,9 @@ const htmlMail = () => {
                                 placeholder="example@gmail.com *"
                                 required="required"
                                 data-error="Email is required."
+                                onChange={(e) => {
+                                  setReceiverEmail(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -56,6 +97,9 @@ const htmlMail = () => {
                                 placeholder="+941111111 *"
                                 required="required"
                                 data-error="Mobile number is required."
+                                onChange={(e) => {
+                                  setReceiverMobile(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -70,6 +114,9 @@ const htmlMail = () => {
                                 class="form-control"
                                 required="required"
                                 data-error="Please specify your need."
+                                onChange={(e) => {
+                                  setUserId(e.target.value);
+                                }}
                               >
                                 <option value="" selected disabled>
                                   --Select--
@@ -84,12 +131,15 @@ const htmlMail = () => {
                               <label for="form_email">Title *</label>
                               <input
                                 id="form_email"
-                                type="email"
+                                type="text"
                                 name="email"
                                 class="form-control"
                                 placeholder="example *"
                                 required="required"
                                 data-error="Title is required."
+                                onChange={(e) => {
+                                  setTitle(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -100,12 +150,15 @@ const htmlMail = () => {
                               <label for="form_email">Product name *</label>
                               <input
                                 id="form_email"
-                                type="email"
+                                type="text"
                                 name="email"
                                 class="form-control"
                                 placeholder="Lightweight Mobility  *"
                                 required="required"
                                 data-error="Product name is required."
+                                onChange={(e) => {
+                                  setProductName(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -114,12 +167,15 @@ const htmlMail = () => {
                               <label for="form_email">Product quantity *</label>
                               <input
                                 id="form_email"
-                                type="email"
+                                type="text"
                                 name="email"
                                 class="form-control"
                                 placeholder="5 *"
                                 required="required"
                                 data-error="Product quantity is required."
+                                onChange={(e) => {
+                                  setProductQuantity(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -132,12 +188,15 @@ const htmlMail = () => {
                               </label>
                               <input
                                 id="form_email"
-                                type="email"
+                                type="text"
                                 name="email"
                                 class="form-control"
                                 placeholder=" http://www.example.com/index.html *"
                                 required="required"
                                 data-error="Product image  is required."
+                                onChange={(e) => {
+                                  setProductUrl(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -154,6 +213,9 @@ const htmlMail = () => {
                                 placeholder=" http://www.example.com/index.html *"
                                 required="required"
                                 data-error="Top banner image is required."
+                                onChange={(e) => {
+                                  setBannerUrl(e.target.value);
+                                }}
                               />
                             </div>
                           </div>
@@ -170,6 +232,9 @@ const htmlMail = () => {
                                 class="form-control"
                                 required="required"
                                 data-error="Template name is required."
+                                onChange={(e) => {
+                                  setTemplateName(e.target.value);
+                                }}
                               >
                                 <option value="" selected disabled>
                                   --Select--
@@ -187,6 +252,9 @@ const htmlMail = () => {
                               type="submit"
                               class="btn btn-send  pt-2 btn-block"
                               value="Send Notification ✅"
+                              onClick={(e) => {
+                                postHtmlMail();
+                              }}
                             />
                           </div>
                         </div>
@@ -203,4 +271,4 @@ const htmlMail = () => {
   );
 };
 
-export default htmlMail;
+export default HtmlMail;
