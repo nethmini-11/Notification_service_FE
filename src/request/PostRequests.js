@@ -1,12 +1,20 @@
-import { useGlobalState } from "../global/UserGlobalData";
 
-
-
-function PostBrand() {
-    const saveBrandURL = "http://localhost:9098/api/catalog/brand/v5/save";
+function PostFileMail() {
+    const saveFileMailURL = "http://localhost:8080/api/v5/kafka-mail-sender/send-file-mail";
   
-    return saveBrandURL;
+    return saveFileMailURL ;
   }
 
+  function PostHtmlMail() {
+    const saveHtmlMailURL = "http://localhost:8080/api/v5/kafka-mail-sender/send-html-mail";
+  
+    return saveHtmlMailURL ;
+  }
 
-export {PostBrand };
+  function PostMailTemplate() {
+    const saveMailTemplateURL = "http://localhost:8080/api/v5/manage-mail/create-email-content";
+  
+    return saveMailTemplateURL ;
+  }
+
+export {PostFileMail ,PostHtmlMail,PostMailTemplate};
