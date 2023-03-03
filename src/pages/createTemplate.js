@@ -13,7 +13,6 @@ const CreateTemplate = () => {
   );
   const postMailTemplateUrl = PostMailTemplate();
 
-
   const handleButton = async (e) => {
     e.preventDefault();
     if (!templateName || !subjectName || !data) {
@@ -23,7 +22,7 @@ const CreateTemplate = () => {
         text: "Please fill out all fields!",
         allowOutsideClick: false,
         allowEscapeKey: false,
-        timer: 2000,
+        timer: 4000,
       });
     } else {
       await postMailTemplate();
@@ -47,7 +46,7 @@ const CreateTemplate = () => {
             text: "🙂",
             allowOutsideClick: false,
             allowEscapeKey: false,
-            timer: 2000,
+            timer: 4000,
           });
         }
       });
