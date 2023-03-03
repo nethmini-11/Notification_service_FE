@@ -19,6 +19,7 @@
     "react-time-picker": "^5.2.0",
     "react-type-animation": "^2.1.2",
     "styled-components": "^5.2.1",
+    "sweetalert2": "^11.7.3",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
