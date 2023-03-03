@@ -17,9 +17,24 @@ const FileMail = () => {
   const [base64, setBase64] = useState("");
   const postFileMailUrl = PostFileMail();
 
+  // Function that handles button click event
   const handleButton = async (e) => {
     e.preventDefault();
-    if (!base64 || !fileName || !productName || !productQuantity || !productUrl || !receiverEmail || !bannerUrl || !receiverMobile || !title || !templateName || !userId) {
+
+    // Check if all necessary fields are filled out
+    if (
+      !base64 ||
+      !fileName ||
+      !productName ||
+      !productQuantity ||
+      !productUrl ||
+      !receiverEmail ||
+      !bannerUrl ||
+      !receiverMobile ||
+      !title ||
+      !templateName ||
+      !userId
+    ) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -29,49 +44,54 @@ const FileMail = () => {
         timer: 4000,
       });
     } else {
-     await postFileMail();
+      // If all fields are filled out, call postMailTemplate function
+      await postFileMail();
     }
   };
-  
+
+  // Function that makes a POST request to server to send a new email
   function postFileMail() {
-    axios.post(postFileMailUrl, {
-      base64file: base64,
-      filename: fileName,
-      mail: {
-        content: {},
-        ordersList: [
-          {
-            productName: productName,
-            productQuantity: productQuantity,
-            productUrl: productUrl,
-          },
-        ],
-        receiverEmail: receiverEmail,
-        topBannerAdUrl: bannerUrl,
-      },
-      mobileNo: receiverMobile,
-      notification: {
-        content: {
-          title: title,
+    // Use axios library to make POST request to server
+    axios
+      .post(postFileMailUrl, {
+        base64file: base64,
+        filename: fileName,
+        mail: {
+          content: {},
+          ordersList: [
+            {
+              productName: productName,
+              productQuantity: productQuantity,
+              productUrl: productUrl,
+            },
+          ],
+          receiverEmail: receiverEmail,
+          topBannerAdUrl: bannerUrl,
         },
-      },
-      templateName: templateName,
-      userId: userId,
-    })
-    .then((res) => {
-      console.log(res);
-      const { data, status } = res;
-      if (status === 200) {
-        Swal.fire({
-          icon: "success",
-          title: data,
-          text: "🙂",
-          allowOutsideClick: false,
-          allowEscapeKey: false,
-          timer: 4000,
-        });
-      }
-    });
+        mobileNo: receiverMobile,
+        notification: {
+          content: {
+            title: title,
+          },
+        },
+        templateName: templateName,
+        userId: userId,
+      })
+      .then((res) => {
+        console.log(res);
+        const { data, status } = res;
+        if (status === 200) {
+          // If request is successful, display success message using SweetAlert2 library
+          Swal.fire({
+            icon: "success",
+            title: data,
+            text: "🙂",
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            timer: 4000,
+          });
+        }
+      });
   }
 
   return (
@@ -325,7 +345,6 @@ const FileMail = () => {
                               class="btn btn-send  pt-2 btn-block"
                               value="Send Notification ✅"
                               onClick={(e) => {
-                        
                                 handleButton(e);
                               }}
                             />
