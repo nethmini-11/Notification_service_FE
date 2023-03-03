@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import { PostHtmlMail } from "../request/PostRequests";
 
 const HtmlMail = () => {
@@ -14,29 +15,77 @@ const HtmlMail = () => {
   const [templateName, setTemplateName] = useState("");
   const postHtmlMailUrl = PostHtmlMail();
 
+  // Function that handles button click event
+  const handleButton = async (e) => {
+    e.preventDefault();
+
+    // Check if all necessary fields are filled out
+    if (
+      !productName ||
+      !productQuantity ||
+      !productUrl ||
+      !receiverEmail ||
+      !bannerUrl ||
+      !receiverMobile ||
+      !title ||
+      !templateName ||
+      !userId
+    ) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill out all fields!",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        timer: 4000,
+      });
+    } else {
+      // If all fields are filled out, call postMailTemplate function
+      await postHtmlMail();
+    }
+  };
+
+  // Function that makes a POST request to server to send a html new email
   function postHtmlMail() {
-    axios.post(postHtmlMailUrl, {
-      mail: {
-        content: {},
-        ordersList: [
-          {
-            productName: productName,
-            productQuantity: productQuantity,
-            productUrl: productUrl,
-          },
-        ],
-        receiverEmail: receiverEmail,
-        topBannerAdUrl: bannerUrl,
-      },
-      mobileNo: receiverMobile,
-      notification: {
-        content: {
-          title: title,
+    // Use axios library to make POST request to server
+    axios
+      .post(postHtmlMailUrl, {
+        mail: {
+          content: {},
+          ordersList: [
+            {
+              productName: productName,
+              productQuantity: productQuantity,
+              productUrl: productUrl,
+            },
+          ],
+          receiverEmail: receiverEmail,
+          topBannerAdUrl: bannerUrl,
         },
-      },
-      templateName: templateName,
-      userId: userId,
-    });
+        mobileNo: receiverMobile,
+        notification: {
+          content: {
+            title: title,
+          },
+        },
+        templateName: templateName,
+        userId: userId,
+      })
+      .then((res) => {
+        console.log(res);
+        const { data, status } = res;
+        if (status === 200) {
+          // If request is successful, display success message using SweetAlert2 library
+          Swal.fire({
+            icon: "success",
+            title: data,
+            text: "🙂",
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            timer: 4000,
+          });
+        }
+      });
   }
 
   return (
@@ -253,7 +302,7 @@ const HtmlMail = () => {
                               class="btn btn-send  pt-2 btn-block"
                               value="Send Notification ✅"
                               onClick={(e) => {
-                                postHtmlMail();
+                                handleButton(e);
                               }}
                             />
                           </div>
