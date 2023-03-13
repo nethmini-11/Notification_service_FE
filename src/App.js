@@ -11,6 +11,8 @@ import CreateTemplate from "./pages/createTemplate";
 import UpdateTemplate from "./pages/updateTemplate";
 import UpdateMessageContent from "./pages/updateMessageContent";
 import HtmlMail from "./pages/htmlMail";
+import AllMails from "./pages/allMails";
+import ViewEmailContent from "./pages/updateTemplate";
 
 
 function App() {
@@ -24,7 +26,8 @@ function App() {
         <Route path="/team" exact component={Team} />
         <Route path="/schedule/singlemail" exact component={ScheduleSingleMail}/>
         <Route path ="/create/template"  exact component={CreateTemplate}/>
-        <Route path ="/update/template"  exact component={UpdateTemplate}/>
+        <Route path ="/update/template/:templateName"  exact component={ViewEmailContent}/>
+       <Route path="/all/mails" exact component={AllMails}/>
         <Route path ="/update/message"  exact component={UpdateMessageContent}/>
       </Switch>
     </Router>
