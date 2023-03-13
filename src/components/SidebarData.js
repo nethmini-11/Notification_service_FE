@@ -105,7 +105,7 @@ export const SidebarData = [
       },
       {
         title: 'All Mails',
-        path: '/messages/message2',
+        path: '/all/mails',
         icon: <IoIcons.IoIosArrowForward />
       }
     ]
