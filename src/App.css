@@ -16,6 +16,13 @@
   height: 90vh;
   font-size: 3rem;
 }
+.table-container{
+  width: 60%;
+  height: 40vh;
+  font-size: 1.2rem;
+  margin-top: 1%;
+  margin-left: 25%;
+}
 .message{
   display: flex;
   height: 50vh;
@@ -206,4 +213,9 @@ margin-top: 10%;
   font-size: x-small;
   outline: none;
   border: 1px solid rgb(111, 238, 153) !important;
+}
+
+.btn-success{
+  background-color: #0ac74a !important;
+  border: none !important;
 }
