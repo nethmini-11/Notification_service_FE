@@ -17,4 +17,10 @@ function PostFileMail() {
     return saveMailTemplateURL ;
   }
 
-export {PostFileMail ,PostHtmlMail,PostMailTemplate};
+  function PostSchedularMail() {
+    const saveSchedularMailURL = "http://localhost:8082/scheduleEmail";
+  
+    return saveSchedularMailURL ;
+  }
+
+export {PostFileMail ,PostHtmlMail,PostMailTemplate,PostSchedularMail};
