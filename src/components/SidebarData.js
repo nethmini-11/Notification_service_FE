@@ -99,11 +99,6 @@ export const SidebarData = [
         icon: <IoIcons.IoIosArrowForward />
       },
       {
-        title: 'Update Email Content',
-        path: '/update/template',
-        icon: <IoIcons.IoIosArrowForward />
-      },
-      {
         title: 'All Mails',
         path: '/all/mails',
         icon: <IoIcons.IoIosArrowForward />
