@@ -19,7 +19,7 @@ const FileMail = () => {
 
   // Function that handles button click event
   const handleButton = async (e) => {
-    e.preventDefault();
+    
 
     // Check if all necessary fields are filled out
     if (
