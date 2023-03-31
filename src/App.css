@@ -219,3 +219,11 @@ margin-top: 10%;
   background-color: #0ac74a !important;
   border: none !important;
 }
+
+.viewExpand{
+
+background-color: transparent !important;
+border: none !important;
+color: #0ac74a;
+font-weight:400;
+}
