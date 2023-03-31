@@ -8,8 +8,12 @@ const AllMails = () => {
   const [mailArray, setMailArray] = useState([]);
   const [mailList, setMailList] = useGlobalState("mailList");
   const getMailURL = GetTemplateDetails();
+  const [showFullContent, setShowFullContent] = useState(false);
 
-  
+  const toggleContent = () => {
+    setShowFullContent(!showFullContent);
+  };
+
   useEffect(() => {
     axios
       .get(getMailURL, {})
@@ -38,7 +42,7 @@ const AllMails = () => {
         <br />
         <h2>ALL MAIL TEMPLATES 📨</h2>
         <br />
-        <table className="table">
+        <table className="table table-bordered">
           <thead className="table-dark">
             <tr>
               <th>#Id</th>
@@ -55,9 +59,29 @@ const AllMails = () => {
                   <th scope="row">{index + 1}</th>
                   <td>{mail.templateName}</td>
                   <td>{mail.subject}</td>
-                  <td>{mail.content}</td>
                   <td>
-                  <Link to={`/update/template/${mail.templateName}`} className="btn btn-success">Edit</Link>
+                    {showFullContent
+                      ? mail.content
+                      : `${mail.content.slice(0, 100)}...`}
+                    {!showFullContent ? (
+                      <button className="viewExpand" onClick={toggleContent}>
+                        {" "}
+                        See more 🔽
+                      </button>
+                    ) : (
+                      <button className="viewExpand" onClick={toggleContent}>
+                        {" "}
+                        Show less 🔼
+                      </button>
+                    )}
+                  </td>
+                  <td>
+                    <Link
+                      to={`/update/template/${mail.templateName}`}
+                      className="btn btn-success"
+                    >
+                      Edit
+                    </Link>
                   </td>
                 </tr>
               );
