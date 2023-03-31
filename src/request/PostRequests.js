@@ -18,7 +18,7 @@ function PostFileMail() {
   }
 
   function PostSchedularMail() {
-    const saveSchedularMailURL = "http://localhost:8082/scheduleEmail";
+    const saveSchedularMailURL = "http://localhost:8080/scheduleEmail";
   
     return saveSchedularMailURL ;
   }
